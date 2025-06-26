@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[876],{4410:s=>{s.exports=JSON.parse('{"sourceUrl":"https://github.com/AdamMillsy/Inputter/blob/main","baseUrl":"/Inputter/","classOrder":[{"classes":["Inputter"]},{"section":"Triggers","classes":["MULTIPLE_PRESS","PRESS"]}],"apiCategories":[]}')}}]);
