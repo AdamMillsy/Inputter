@@ -62,4 +62,8 @@ export type SHORT_PRESS = Trigger & {
 	new: (BindingInfo: BindingInfo, MaxPressTime: number?) -> Trigger,
 }
 
+export type COMBINATION = Trigger & {
+	new: (BindingInfo: BindingInfo) -> Trigger,
+}
+
 return {}
