@@ -24,6 +24,7 @@ Inputter.Trigger = {
 	PRESS = require(script.Triggers.PRESS).new,
 	HOLD = require(script.Triggers.HOLD).new,
 	SHORT_PRESS = require(script.Triggers.SHORT_PRESS).new,
+	COMBINATION = require(script.Triggers.COMBINATION).new,
 }
 
 --[=[
@@ -45,6 +46,33 @@ Inputter.Trigger = {
 			IgnoreGameProcessedEvent = true,
 		}, 2, 0.3)
 	})
+	```
+
+	Creates a combination inputter that listens for the chronilogical order of inputs, i.e. the first input must be pressed before the second input, and so on - last key is the trigger.
+
+	```lua
+	local combination = Inputter.Trigger.COMBINATION({
+		Input = {
+			Enum.KeyCode.A,
+			Enum.KeyCode.B,
+			Enum.KeyCode.C,
+		},
+		IgnoreGameProcessedEvent = false,
+	})
+
+	-- Connect to the activation event
+	combination.OnActivated:Connect(function(input, gameProcessedEvent)
+		print("Combination activated!")
+		-- Your custom logic here
+	end)
+
+	-- Connect to the deactivation event (when any key is released)
+	combination.OnDeactivated:Connect(function(input, gameProcessedEvent)
+		print("Combination deactivated!")
+	end)
+
+	-- Clean up when done
+	--combination:Destroy()
 	```
 ]=]
 
